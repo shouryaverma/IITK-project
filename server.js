@@ -1,11 +1,16 @@
 const express = require('express');
+var app = express();
 const hbs = require('hbs');
 const fs = require('fs');
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 
-var formidable = require('formidable');
-var app = express();
+var http = require("http");
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 hbs.registerPartials(__dirname + '/views/partials')
+
 app.set('view engine', 'hbs');
 
 app.use((req, res, next) => {
@@ -37,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
-    pageTitle: 'App Page',
+    pageTitle: 'Web App',
     welcomeMessage: 'Welcome to the app'
   });
 });
@@ -48,11 +53,37 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/next', (req, res) => {
+app.get('/next', urlencodedParser, (req, res) => {
   res.render('next.hbs', {
     pageTitle: 'Next Page'
   });
 });
+
+//forms
+
+// app.get('/form', (req, res) => {
+//   var html='';
+//   html +="<body>";
+//   html += "<form action='/thank'  method='post' name='form1'>";
+//   html += "First Name:<input type='text' name='firstname'></p>";
+//   html += "Last Name:<input type='text' name='lastname'></p>";
+//   html += "<input type='submit' value='submit'>";
+//   html += "<input type='reset'  value='reset'>";
+//   html += "<input type='file' value='upload'>";
+//   html += "</form>";
+//   html += "</body>";
+//   res.send(html);
+// });
+//
+// app.post('/thank', urlencodedParser, (req, res) => {
+//   var reply='';
+//   reply += "Your first name is " + req.body.firstname;
+//   reply += "<br> Your last name is " + req.body.lastname;
+//   reply += "<br> Your uploaded file is " + req.body.upload;
+//   res.send(reply);
+//  });
+
+//forms
 
 // /bad - send back json with errorMessage
 app.get('/bad', (req, res) => {

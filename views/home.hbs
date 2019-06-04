@@ -4,11 +4,31 @@
     <meta charset="utf-8">
     <title>Some Website</title>
   </head>
-  <body>
-    {{> header}}
+  <style>
+    div {
+      background-color: lightgrey;
+      width: 450px;
+      border: 15px solid green;
+      padding: 50px;
+      margin: 20px;
+      text-align: center;
+    }
+  </style>
+  <div>
+    <body>
+      <center> {{> header}}
+      <p>Welcome to Home page</p></center>
+      <br>
 
-    <p>Welcome to Home page</p>
+      <!-- form -->
+      <form action='/next'  method='post' name='form1'>
+        <p>Enter your Name: <input type='text' name='name'></p>
+        <p>Upload text file: <input type='file' value='upload'></p>
+      </form>
+      <!-- form  -->
+      <br>
 
-    {{> footer}}
-  </body>
+      <center> {{> footer}} </center>
+    </body>
+  </div>
 </html>
