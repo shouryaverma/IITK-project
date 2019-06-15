@@ -19,13 +19,11 @@
       <center> {{> header}}
       <p>Welcome to Home page</p></center>
       <br>
-
-      <!-- form -->
-      <form action='/next'  method='post' name='form1'>
-        <p>Enter your Name: <input type='text' name='name'></p>
-        <p>Upload text file: <input type='file' value='upload'></p>
+      <form action="/next" onsubmit = "return results();" method = "post">
+        <p>Enter your Name: <input id="name" type='text' name='name'></p>
+        <p>Upload text file: <input id='filechoice' type='file' value='upload'></p>
+        <p><input id="submit" type="submit" value="Submit data"></p>
       </form>
-      <!-- form  -->
       <br>
 
       <center> {{> footer}} </center>
