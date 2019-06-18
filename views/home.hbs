@@ -27,17 +27,19 @@
       <center> {{> header}}
       <p>Welcome to Home page</p></center>
       <br>
-      <form>
+      <form onsubmit="results(); return false;">
         <p>Enter your Name: <input id="name" type='text' name='name'></p>
         <p>Upload text file: <input id='filechoice' type='file' value='upload'></p>
-        <p><input id="submit" type="submit" onclick="results()" value="Submit data"></p>
+        <p><input id="submit" type="submit" value="Submit data"></p>
       </form>
 
       <br>
-      <span id = "show_name"></span>
+        <span id = "show_name"></span>
       <br>
 
       <center> {{> footer}} </center>
     </body>
+
+
   </div>
 </html>
