@@ -14,21 +14,12 @@
       text-align: center;
     }
   </style>
+
   <div>
   <body>
     {{> header}}
 
     <p>Welcome to the next page</p>
-
-    <script>
-      function results() {
-        var name = document.getElementById('name').value;
-        var filechoice = document.getElementById('filechoice').value;
-
-        document.write(name + "<br/>");
-        document.write(filechoice + "<br/>");
-      }
-    </script>
 
     {{> footer}}
   </body>

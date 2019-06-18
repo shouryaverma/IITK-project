@@ -14,16 +14,27 @@
       text-align: center;
     }
   </style>
+
+  <script>
+    function results(){
+      var name = document.getElementById('name').value;
+      show_name.innerHTML = "Your name is: " + name;
+    }
+  </script>
+
   <div>
     <body>
       <center> {{> header}}
       <p>Welcome to Home page</p></center>
       <br>
-      <form action="/next" onsubmit = "return results();" method = "post">
+      <form>
         <p>Enter your Name: <input id="name" type='text' name='name'></p>
         <p>Upload text file: <input id='filechoice' type='file' value='upload'></p>
-        <p><input id="submit" type="submit" value="Submit data"></p>
+        <p><input id="submit" type="submit" onclick="results()" value="Submit data"></p>
       </form>
+
+      <br>
+      <span id = "show_name"></span>
       <br>
 
       <center> {{> footer}} </center>

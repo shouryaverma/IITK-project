@@ -59,7 +59,7 @@ app.get('/about', (req, res) => {
 //   });
 // });
 
-app.post('/next', urlencodedParser, (req, res) => {
+app.get('/next', urlencodedParser, (req, res) => {
   res.render('next.hbs', {
     pageTitle: 'Next Page'
   });
