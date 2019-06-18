@@ -19,6 +19,14 @@
     function results(){
       var name = document.getElementById('name').value;
       show_name.innerHTML = "Your name is: " + name;
+
+      document.getElementById("filechoice").addEventListener('change', function(){
+        var fr = new FileReader();
+        fr.onload = function(){
+          document.getElementById("output").textContent = this.result;
+        }
+        fr.readAsText(this.files[0]);
+      });
     }
   </script>
 
@@ -28,13 +36,15 @@
       <p>Welcome to Home page</p></center>
       <br>
       <form onsubmit="results(); return false;">
-        <p>Enter your Name: <input id="name" type='text' name='name'></p>
-        <p>Upload text file: <input id='filechoice' type='file' value='upload'></p>
-        <p><input id="submit" type="submit" value="Submit data"></p>
+        <p>Enter your Name: <input id="name" type='text' name='name'/></p>
+        <p>Upload text file: <input id='filechoice' type='file' value='upload'/></p>
+        <p><input id="submit" type="submit" value="Submit data"/></p>
       </form>
 
       <br>
         <span id = "show_name"></span>
+        <br>
+        <span id = "output"></span>
       <br>
 
       <center> {{> footer}} </center>
