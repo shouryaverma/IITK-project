@@ -22,10 +22,9 @@
       text-align: center;
     }
   </style>
-
   <div class="example">
     <body>
-      <center> {{> header}}
+      <center> {{> header}} <hr>
       <p>Welcome to Home page</p></center>
       <br>
       <form>
@@ -49,8 +48,9 @@
           });
       </script>
 
-      <br>
-      <hr>
+      <br><hr><br>
+      <p>Drag and drop the contents in the form.</p>
+      <br><hr><br>
 
       <div class="row">
         <div class="column">
@@ -59,11 +59,17 @@
         </div>
         <div class="column">
           <form>
-
+            <p> Author of Article (First): <input id="1author" type='text' name='1author'/></p>
+            <p> Author of Article (Second): <input id="2author" type='text' name='2author'/></p>
+            <p> Title of Article: <input id="title" type='text' name='title'/></p>
+            <p> Year of Publication : <input id="year" type='text' name='year'/></p>
+            <p> Volume Num: <input id="vol" type='text' name='vol'/></p>
+            <p> Issue Num: <input id="issue" type='text' name='issue'/></p>
+            <p> Page Nums: <input id="page" type='text' name='page'/></p>
+            <p><input id="submit" type="submit" value="Submit data"/></p>
           </form>
         </div>
-      </div>
-
+      </div><hr>
       <center> {{> footer}} </center>
     </body>
   </div>
