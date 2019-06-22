@@ -65,32 +65,6 @@ app.get('/next', urlencodedParser, (req, res) => {
   });
 });
 
-//forms
-
-// app.get('/form', (req, res) => {
-//   var html='';
-//   html +="<body>";
-//   html += "<form action='/thank'  method='post' name='form1'>";
-//   html += "First Name:<input type='text' name='firstname'></p>";
-//   html += "Last Name:<input type='text' name='lastname'></p>";
-//   html += "<input type='submit' value='submit'>";
-//   html += "<input type='reset'  value='reset'>";
-//   html += "<input type='file' value='upload'>";
-//   html += "</form>";
-//   html += "</body>";
-//   res.send(html);
-// });
-//
-// app.post('/thank', urlencodedParser, (req, res) => {
-//   var reply='';
-//   reply += "Your first name is " + req.body.firstname;
-//   reply += "<br> Your last name is " + req.body.lastname;
-//   reply += "<br> Your uploaded file is " + req.body.upload;
-//   res.send(reply);
-//  });
-
-//forms
-
 // /bad - send back json with errorMessage
 app.get('/bad', (req, res) => {
   res.send({
