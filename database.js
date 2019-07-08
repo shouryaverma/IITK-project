@@ -5,7 +5,7 @@ var qs = require('querystring');
 var mong= require('mongodb').mong; //before executing this code make sure mongodb is running on your laptop,
 																		//create a database and a table/collection in it
 
-var url ="mongodb://localhost:27017/NameOfDatabase"; //0000 is the port number on which mongodb would be opened on the server,
+var url ="mongodb://localhost:27017/iit-k"; //27017 is the port number on which mongodb would be opened on the server,
 																										//make sure you enter the correct port number
 http.createServer(function(req,res){
 	if(req.url == "/"){
@@ -25,7 +25,7 @@ http.createServer(function(req,res){
 			mong.connect(url, function(err,result){
 				if(err) throw err;
 				var q = qs.parse(data);
-				db.collection('xxx').insertOne(q,function(err,res){ //xxx is the name of the collection in the database,
+				db.collection('records').insertOne(q,function(err,res){ //records is the name of the collection in the database,
 																															//you can write any name you want to
 					if (err) throw err;
 					console.log("Data entered");
@@ -34,4 +34,4 @@ http.createServer(function(req,res){
 			});
 		});
 	}
-}).listen(3000); //3000 is the port number on which i ve created the server, you can use any port number you like
+}).listen(5000); //3000 is the port number on which i ve created the server, you can use any port number you like

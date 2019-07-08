@@ -26,19 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs');
-// });
 
 app.use(express.static(__dirname + '/public'));
-
-// hbs.registerHelper('getCurrentYear', () => {
-//   return new Date().getFullYear();
-// });
-
-// hbs.registerHelper('screamIt', (text) => {
-//   return text.toUpperCase();
-// });
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
@@ -52,12 +41,6 @@ app.get('/about', (req, res) => {
     pageTitle: 'About Page'
   });
 });
-
-// app.get('/next', urlencodedParser, (req, res) => {
-//   res.render('next.hbs', {
-//     pageTitle: 'Next Page'
-//   });
-// });
 
 app.get('/next', urlencodedParser, (req, res) => {
   res.render('next.hbs', {
