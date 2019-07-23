@@ -79,10 +79,6 @@
       </form>
 
       <script>
-        // function results(){
-        //   var name = document.getElementById('name').value;
-        //   show_name.innerHTML = "Your name is: " + name;
-        // }
           document.getElementById("filechoice").addEventListener('change', function(){
             var fr = new FileReader();
             fr.onload = function(){
@@ -104,7 +100,7 @@
         </div>
         <div class="column">
           <h3> Fill required forms</h3><br>
-          <form action='/' method="POST">
+          <form action='/post-feedback' method="POST">
             <p> Author of Article (First): <input id="1author" type='text' name='1author'/></p>
             <p> Author of Article (Second): <input id="2author" type='text' name='2author'/></p>
             <p> Title of Article: <input id="title" type='text' name='title'/></p>
@@ -114,6 +110,7 @@
             <p> Page Nums: <input id="page" type='text' name='page'/></p>
             <p><input id="submit" type="submit" value="Submit data" class="but2"/></p>
           </form>
+          <a href="/view-feedbacks"> View Feedbacks </a>
         </div>
       </div><hr>
       <div class="bottom">

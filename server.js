@@ -26,7 +26,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
@@ -42,9 +41,9 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/next', urlencodedParser, (req, res) => {
-  res.render('next.hbs', {
-    pageTitle: 'Next Page'
+app.get('/view-feedbacks', (req, res) => {
+  res.render('feedback.hbs', {
+    pageTitle: 'Feedback Page'
   });
 });
 
