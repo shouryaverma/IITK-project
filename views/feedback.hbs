@@ -5,6 +5,38 @@
     <title>Some Website</title>
   </head>
   <style>
+  .button {
+    background-color: #45A29E;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .but1 {
+    background-color: #45A29E;
+    color: black;
+    border: 2px solid #45A29E;
+  }
+  .but1:hover {
+    background-color: white;
+    color: white;
+  }
+  .bottom{
+      background-color: #45A29E;
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+  .top{
+      background-color: #45A29E;
+      padding-top: 5px;
+  }
   .bodybg{
       background-color: #1F2833;
   }
@@ -18,14 +50,28 @@
   }
   </style>
 
+<body class="bodybg">
   <div class="example">
-  <body class="bodybg">
-    {{> header}}
+    <div class="top">
+      <h1>{{pageTitle}}</h1>
+      <h2><p>Welcome to View Feedbacks Page</p></h2> <hr>
+    </div>
 
-    <p>Welcome to the Feedback page</p>
+    <br>
 
+    <div>
+      <h3>Below is the sorted data</h3>
+    </div>
 
-    {{> footer}}
-  </body>
-</div>
+    <br>
+
+    <div class="bottom">
+         <p>
+           <button class="but1"> <a href="/"> Home </a> </button>
+           <button class="but1"> <a href="/about"> About </a> </button>
+         </p>
+    </div>
+
+  </div>
+</body>
 </html>

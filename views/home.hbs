@@ -72,10 +72,7 @@
       </div>
       <br>
       <form>
-      <!-- <form onsubmit="results(); return false;"> -->
-        <!-- <p>Enter your Name: <input id="name" type='text' name='name'/></p> -->
         <p>Upload text file: <input id='filechoice' type='file' value='upload'/></p>
-        <!-- <p><input id="submit" type="submit" value="Submit data"/></p> -->
       </form>
 
       <script>
@@ -100,7 +97,8 @@
         </div>
         <div class="column">
           <h3> Fill required forms</h3><br>
-          <form action='/post-feedback' method="POST">
+          <!-- <form action='/post-feedback' method="POST"> -->
+          <form method="POST">
             <p> Author of Article (First): <input id="1author" type='text' name='1author'/></p>
             <p> Author of Article (Second): <input id="2author" type='text' name='2author'/></p>
             <p> Title of Article: <input id="title" type='text' name='title'/></p>

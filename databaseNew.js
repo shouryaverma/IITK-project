@@ -4,8 +4,9 @@ const qs = require('querystring');
 const MongoClient = require('mongodb').MongoClient;//before executing this code make sure mongodb is running on your laptop, create a database and a table/collection in it
 const url ="mongodb://localhost:27017/iit-k"; //0000 is the port number on which mongodb would be opened on the server, make sure you enter the correct port number
 const client = new MongoClient(url, { useNewUrlParser: true });
+
 http.createServer(function(req,res){
-	if(req.url == "/form"){
+	if(req.url == "/"){
 		res.writeHead(200,{"Content-Type":"text/html"});
 		fs.createReadStream("./views/home.hbs","UTF-8").pipe(res); //make sure you enter the correct path of the directory in which the drag and drop form is as the first argument of this function
 
