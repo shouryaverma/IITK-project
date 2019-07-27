@@ -18,11 +18,13 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
+    border-radius: 10px;
   }
   .but1 {
     background-color: #45A29E;
     color: black;
     border: 2px solid #45A29E;
+    border-radius: 10px;
   }
   .but1:hover {
     background-color: white;
@@ -32,9 +34,23 @@
     background-color: white;
     color: black;
     border: 2px solid #45A29E;
+    text-decoration: none;
+    border-radius: 10px;
   }
   .but2:hover {
     background-color: #45A29E;
+    color: white;
+  }
+  .but3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #3498DB;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  .but3:hover {
+    background-color: #3498DB;
     color: white;
   }
   .bodybg{
@@ -62,6 +78,7 @@
       padding: 10px;
       margin: auto;
       text-align: center;
+      border-radius: 15px;
   }
   </style>
   <body class="bodybg">
@@ -108,9 +125,11 @@
             <p> Page Nums: <input id="page" type='text' name='page'/></p>
             <p><input id="submit" type="submit" value="Submit data" class="but2"/></p>
           </form>
-          <a href="/view-feedbacks"> View Feedbacks </a>
         </div>
-      </div><hr>
+      </div>
+      <br>
+        <a href="/view-feedbacks" class="but3"> View Feedbacks </a>
+      <hr>
       <div class="bottom">
            <p>
              <button class="but1"> <a href="/"> Home </a> </button>
