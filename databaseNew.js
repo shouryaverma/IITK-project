@@ -26,7 +26,6 @@ http.createServer(function(req,res){
 
 						console.log("Data entered");
 						client.close();
-
 				});
 
 			})
