@@ -119,6 +119,9 @@
           <a href="#">DOI</a>
         </div>
       </div>
+
+      <button onclick="fetch()">Fetch Data</button>
+
     </div>
 
     <br>
@@ -132,6 +135,26 @@
 
   </div>
   <script>
+  var http = require('http');
+  var qs = require('querystring');
+  var MongoClient = require('mongodb').MongoClient;
+  var url ="mongodb://localhost:27017/iit-k";
+  var client = new MongoClient(url, { useNewUrlParser: true });
+
+  function fetch(req,res){
+    client.connect(err => {
+      if(err) throw err;
+      const collection = client.db("iit-k").collection("records");
+      collection.find({}).toArray(function(err,result){
+        if(err) throw err;
+        res.writeHead(200,{"Content-Type":"text/html"});
+        res.end(JSON.stringify(result));
+        console.log("Data found");
+        client.close();
+      });
+    });
+  });
+
   /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
   function myFunction() {

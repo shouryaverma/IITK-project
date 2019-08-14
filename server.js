@@ -56,8 +56,8 @@ app.get('/bad', (req, res) => {
 
 var http = require('http');
 var qs = require('querystring');
-var MongoClient = require('mongodb').MongoClient;//before executing this code make sure mongodb is running on your laptop, create a database and a table/collection in it
-var url ="mongodb://localhost:27017/iit-k"; //0000 is the port number on which mongodb would be opened on the server, make sure you enter the correct port number
+var MongoClient = require('mongodb').MongoClient;
+var url ="mongodb://localhost:27017/iit-k";
 var client = new MongoClient(url, { useNewUrlParser: true });
 
 app.use(function(req,res){
@@ -76,13 +76,27 @@ app.use(function(req,res){
 			client.connect(err => {
 			if(err) throw err;
   			const collection = client.db("iit-k").collection("records");
-  			collection.insertOne(q,function(err,res){ //xxx is the name of the collection in the database, you can write any name you want to
+  			collection.insertOne(q,function(err,res){
 						console.log("Data entered");
                 client.close();
 				});
 			});
 		});
 	};
+});
+
+app.use(function(req,res){
+  client.connect(err => {
+    if(err) throw err;
+    const collection = client.db("iit-k").collection("records");
+    collection.find({}).toArray(function(err,result){
+      if(err) throw err;
+      res.writeHead(200,{"Content-Type":"text/html"});
+      res.end(JSON.stringify(result));
+      console.log("Data found");
+      client.close();
+    });
+  });
 });
 
 app.listen(3000, () => {
