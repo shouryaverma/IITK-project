@@ -85,20 +85,6 @@ app.use(function(req,res){
 	};
 });
 
-app.use(function(req,res){
-  client.connect(err => {
-    if(err) throw err;
-    const collection = client.db("iit-k").collection("records");
-    collection.find({}).toArray(function(err,result){
-      if(err) throw err;
-      res.writeHead(200,{"Content-Type":"text/html"});
-      res.end(JSON.stringify(result));
-      console.log("Data found");
-      client.close();
-    });
-  });
-});
-
 app.listen(3000, () => {
   console.log('Server is up on port 3000');
 });

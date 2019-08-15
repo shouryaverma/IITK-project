@@ -118,6 +118,29 @@
           <a href="#">Harvard</a>
           <a href="#">DOI</a>
         </div>
+
+
+        <script>
+          /* When the user clicks on the button,
+          toggle between hiding and showing the dropdown content */
+          function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+
+          // Close the dropdown menu if the user clicks outside of it
+          window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+                }
+              }
+            }
+          }
+        </script>
       </div>
 
       <button onclick="fetch()">Fetch Data</button>
@@ -134,6 +157,8 @@
     </div>
 
   </div>
+
+
   <script>
   var http = require('http');
   var qs = require('querystring');
@@ -148,32 +173,12 @@
       collection.find({}).toArray(function(err,result){
         if(err) throw err;
         res.writeHead(200,{"Content-Type":"text/html"});
-        res.end(JSON.stringify(result));
+        res.send(JSON.stringify(result));
         console.log("Data found");
         client.close();
       });
     });
   });
-
-  /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
   </script>
 </body>
 </html>
