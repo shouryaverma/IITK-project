@@ -1,0 +1,188 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.button {
+  background-color: #45A29E;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.but1 {
+  background-color: #45A29E;
+  color: black;
+  border: 2px solid #45A29E;
+  border-radius: 10px;
+}
+.but1:hover {
+  background-color: white;
+  color: white;
+}
+.but2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #45A29E;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.but2:hover {
+  background-color: #45A29E;
+  color: white;
+}
+.but3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #3498DB;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.but3:hover {
+  background-color: #3498DB;
+  color: white;
+}
+.bodybg{
+  background-color: #1F2833;
+}
+.top{
+  background-color: #45A29E;
+  padding-top: 5px;
+}
+.bottom{
+  background-color: #45A29E;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.row {
+  display: flex;
+}
+.column {
+  flex: 50%;
+}
+.example {
+  background-color: lightgrey;
+  width: 900px;
+  border: 15px solid black;
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+  border-radius: 15px;
+}
+</style>
+<body class="bodybg">
+  <div class="example">
+    <div class="top">
+      <br>
+      <h1><p>Welcome to Home Page</p></h1>
+      <br>
+      <hr>
+    </div>
+    <br>
+    <form>
+      <h6><p>Upload text file: <input id='filechoice' type='file' value='upload'/></p></h6>
+    </form>
+
+    <script>
+    document.getElementById("filechoice").addEventListener('change', function(){
+      var fr = new FileReader();
+      fr.onload = function(){
+        document.getElementById("output").textContent = this.result;
+      }
+      fr.readAsText(this.files[0]);
+    });
+    </script>
+    <br><hr><br>
+    <h6><p>Drag and drop the contents in the form below</p></h6>
+    <br><hr>
+
+    <div class="row">
+      <div class="column">
+        <h4> Contents of the Text File</h4>
+        <hr><br>
+        <h7><span id = "output"></span></h7>
+      </div>
+      <div class="column">
+        <h4>{{viewTitle}}</h4>
+        <hr>
+        <div class="col-md-6.offset-md-3" style="margin:auto; width:400px;">
+          <form action="/employee" method="POST" autocomplete="off">
+            <input type="hidden" name="_id" value="{{employee._id}}">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Author's First Name Initials</label>
+                <input type="text" class="form-control" name="firstName" placeholder="First Name Initials" value="{{employee.firstName}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Author's Last Name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{employee.lastName}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Year of Publication</label>
+                <input type="text" class="form-control" name="year" placeholder="Year" value="{{employee.year}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Book Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Title" value="{{employee.title}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Place of Publication</label>
+                <input type="text" class="form-control" name="place" placeholder="Place" value="{{employee.place}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Journal Publisher</label>
+                <input type="text" class="form-control" name="publisher" placeholder="Publisher" value="{{employee.publisher}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Journal Volume</label>
+                <input type="text" class="form-control" name="volume" placeholder="Volume" value="{{employee.volume}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Journal Issue</label>
+                <input type="text" class="form-control" name="issue" placeholder="Issue" value="{{employee.issue}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Journal Pages</label>
+                <input type="text" class="form-control" name="pages" placeholder="Pages" value="{{employee.pages}}">
+              </div>
+              <!-- <div class="form-group col-md-6">
+                <label>Issue</label>
+                <input type="text" class="form-control" name="issue" placeholder="Issue" value="{{employee.issue}}">
+              </div> -->
+            </div>
+            <hr>
+            <div class="form-group">
+              <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="top">
+    <br>
+    <div class="form-group">
+      <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list-alt"></i> View Sorted</a>
+    </div>
+    <br>
+    <div>
+  </div>
+</body>
+</html>
